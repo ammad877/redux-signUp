@@ -1,14 +1,17 @@
 const INITIAL_STATE = {
-    email : "",
-    password : ""
+    userData:{
+        name:"",
+        email:"",
+        userId:""
+    }
 }
 
 function reducer(state = INITIAL_STATE, action) {
     switch (action.type) {
-        case "UPDATE_USER_DATA":
-            console.log(action , 'action')
-        return {...state}
+        case "LOGIN_USER_DATA":
+            return {...state,userData:{...state.userData,email:action.payload.email,userId:action.payload.uid}}
     }
+    return state
 }
 
 export default reducer;
